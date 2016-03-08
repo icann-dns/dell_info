@@ -14,7 +14,8 @@ url = 'https://api.dell.com/support/v2/assetinfo/warranty/tags.json?apikey=%s&sv
 apikey = '1adecee8a60444738f280aad1cd87d0e'
 dell_machine = false
 
-if  Facter.value('manufacturer').downcase =~ /dell/ then
+if  Facter.value('manufacturer') && 
+  Facter.value('manufacturer').downcase =~ /dell/ then
   dell_machine = true
 end
 
