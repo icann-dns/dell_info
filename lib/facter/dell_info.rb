@@ -14,8 +14,7 @@ url = 'https://api.dell.com/support/v2/assetinfo/warranty/tags.json?apikey=%s&sv
 apikey = '1adecee8a60444738f280aad1cd87d0e'
 dell_machine = false
 
-if  Facter.value('manufacturer') && 
-  Facter.value('manufacturer').downcase =~ /dell/ then
+if  Facter.value('manufacturer') =~ /dell/i then
   dell_machine = true
 end
 
@@ -29,7 +28,7 @@ if File.exists?(conf_file) then
   end
   if config['extra_facts'].any? then
     config['extra_facts'].each do |fact|
-      if Facter.value(fact).downcase =~ /dell/ then
+      if Facter.value(fact) =~ /dell/i then
         dell_machine = true
       end
     end
