@@ -4,6 +4,8 @@ require 'date'
 require 'time'
 require 'net/http'
 
+Facter.debug('resolving dell_info facts.')
+
 conf_file = '/etc/dell_info.yaml'
 config = Hash.new
 
